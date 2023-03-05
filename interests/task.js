@@ -7,7 +7,6 @@ inputList.forEach(element => element.addEventListener('change', clickHandler))
 function clickHandler(e) {
     handlerAbove(e.target)
     handlerBelow(e.target)
-    
 }
 
 // Handles input one level higher
