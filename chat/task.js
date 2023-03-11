@@ -25,7 +25,7 @@ waiter()
 chatInputBox.addEventListener(('keypress'), inputBoxSendHandler)
 
 async function inputBoxSendHandler (e) {
-    if (e.key === 'Enter' && e.target.value != '') {
+    if (e.key === 'Enter' && e.target.value.trim() != '') {
         // Question
         renderQuestion(e)
 

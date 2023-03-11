@@ -70,13 +70,20 @@ class Autocomplete {
   getMatches( text ) {
     let result = []
     let contactsArray = Array.from(this.input.options)
-    contactsArray.forEach(e => {
-      if (e.textContent.includes(text)) {
-        var singleObject = {};
-        singleObject['text'] = e.textContent;
-        singleObject['value'] = e.value;
-        result.push(singleObject);
-      }
+
+    // Old task solution
+    // contactsArray.forEach(e => {
+    //   if (e.textContent.includes(text)) {
+    //     var singleObject = {};
+    //     singleObject['text'] = e.textContent;
+    //     singleObject['value'] = e.value;
+    //     result.push(singleObject);
+    //   }
+    // })
+
+    let clearContactsArray = contactsArray.filter(el => el.textContent.includes(text))
+    clearContactsArray.forEach(e => {
+      result.push({text: e.textContent, value: e.value})
     })
 
     return result

@@ -27,12 +27,16 @@ function handlerAbove(e) {
     // Status checked all input in current ul
     siblingCurrentClickInputCheckboxStatus = Array.from(siblingCurrentClickInput).map(e => e.checked)
 
+    // Status indeterminate all input in current ul
+    siblingCurrentClickInputIndetermStatus = Array.from(siblingCurrentClickInput).map(e => e.indeterminate)
+
     // Check all input in current ul
     let inputTrueAmount = 0
     siblingCurrentClickInputCheckboxStatus.forEach(e => e ? inputTrueAmount++ : e)
 
     // Checkbox setter for the parent element or nothing
     if (parentCurrentClickInput != undefined) {
+        console.log(siblingCurrentClickInputCheckboxStatus)
         if (inputTrueAmount == siblingCurrentClickInputCheckboxStatus.length) {
             parentCurrentClickInput.checked = true
             parentCurrentClickInput.indeterminate = false
@@ -46,7 +50,7 @@ function handlerAbove(e) {
 
         handlerAbove(parentCurrentClickInput)
     } else {
-        // Do nothing becuse no parent
+        // Do nothing because no parent
     }
 }
 
